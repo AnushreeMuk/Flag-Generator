@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Flag Generator</title>
+</head>
+<body bgcolor="black">
+<p>
+   <center>
+    <h1 style="color: white;">Flag Generator</h1>
+    <b style="color: white;">Click on the workspace to Generate Random Flags</b>
+    <br>
+    <br>
+    <br>
+    <div id="flag-generator"></div>
+    
+   </center>
+</p>
+<script>
+    const flagContainer = document.getElementById("flag-generator");
+
+const generateFlag = () => {
+  const shape1 = getRandomColor();
+  const shape2 = getRandomColor();
+  const shape3 = getRandomColor();
+
+  flagContainer.innerHTML = `
+    <div style="width: 800px; height: 150px; background-color: ${shape1};"></div>
+    <div style="width: 800px; height: 150px; background-color: ${shape2};"></div>
+    <div style="width: 800px; height: 150px; background-color: ${shape3};"></div>`;
+};
+
+const getRandomColor = () =>
+ {const letters = "0123456789ABCDEF";
+  let color = "#";
+  for (let i = 0; i < 6; i++) {
+    color += letters[Math.floor(Math.random() * 16)];
+  }
+  return color;
+};
+generateFlag();
+flagContainer.addEventListener("click", generateFlag);
+</script>
+</body>
+</html>
